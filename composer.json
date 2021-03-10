@@ -1,14 +1,14 @@
 {
     "name": "weigatherboss/boss_login",
-    "description": "description...",
+    "description": "总码登陆包",
     "type": "library",
     "keywords": ["laravel-admin", "extension"],
     "homepage": "https://github.com/522515341/wj_boss.git",
     "license": "MIT",
     "authors": [
         {
-            "name": "your name",
-            "email": "your email"
+            "name": "RoHaParker",
+            "email": "522515341@qq.com"
         }
     ],
     "require": {
