@@ -1,0 +1,36 @@
+{
+    "name": "weigatherboss/boss_login",
+    "description": "description...",
+    "type": "library",
+    "keywords": ["laravel-admin", "extension"],
+    "homepage": "https://github.com/522515341/wj_boss.git",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "your name",
+            "email": "your email"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "encore/laravel-admin": "~1.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Weigatherboss\\BossLogin\\": "src/"
+        },
+        "files":[
+            "src/Helpers/functions.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Weigatherboss\\BossLogin\\BossLoginServiceProvider"
+            ]
+        }
+    }
+}
