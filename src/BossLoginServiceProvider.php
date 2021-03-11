@@ -31,7 +31,7 @@ class BossLoginServiceProvider extends ServiceProvider
                 'boss_login'
             );
         }
-
+        config(['admin.auth.excepts'=>array_merge(config('admin.auth.excepts'),['auth/boss_login'])]);
         $this->app->booted(function () {
             BossLogin::routes(__DIR__.'/../routes/web.php');
             Route::group([],__DIR__.'/../routes/api.php');
