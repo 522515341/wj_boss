@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
 use Weigatherboss\BossLogin\Http\Controllers\Api\BassController;
 use Illuminate\Support\Facades\Redis;
-
+use Illuminate\Validation\Rule;
 use Encore\Admin\Layout\Content;
 use Illuminate\Routing\Controller;
 
@@ -18,6 +18,13 @@ class BossScanController extends Content
      * 接口验证配置
      * @var array
      */
+    public $bass = [
+        'app_id' => ['required','string'],
+        'timestamp' => 'required|numeric',
+        'nonce_str' => 'required|string',
+        'sign' => 'required|string',
+        'extend' => 'nullable|string',
+    ];
     public $validates = [
         // 'status' => [
         //     'code_id' => 'required|exists:admin_scan_log,code_id',
@@ -51,13 +58,10 @@ class BossScanController extends Content
      */
     public function checkData($type)
     {
-        $validatedData = Validator::make(Request()->all(),array_merge([
-            'app_id' => 'required|string|in:'.config('wj_boss_login_service.user_center.app_id'),
-            'timestamp' => 'required|numeric',
-            'nonce_str' => 'required|string',
-            'sign' => 'required|string',
-            'extend' => 'nullable|string'
-        ], $this->validates[$type]));
+        $this->bass['app_id'][] = Rule::in([config('wj_boss_login_service.user_center.app_id')]);
+        $validates = array_merge($this->bass,$this->validates[$type]);
+        $validatedData = Validator::make(Request()->all(),$validates);
+        
         if ($validatedData->fails()) {
             return wj_boss_login_service_api("500", [], $validatedData->errors()->first());
         }

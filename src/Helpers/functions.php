@@ -1,10 +1,10 @@
 <?php  
 function wj_boss_login_service_api($code='00',$data=array(),$msg="成功"){
-    return [
+    exit(json_encode([
         'code'=>$code,
         'msg'=>$msg,
         'data'=>$data,
-    ];
+    ],JSON_UNESCAPED_UNICODE));
 }
 
 if (!function_exists('wj_boss_login_service_url')) {
