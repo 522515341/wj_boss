@@ -35,7 +35,7 @@ class BossScanController extends Content
         //     'user_token' => 'required|string',
         // ],
         'login' => [
-            'code_id' => 'required|exists:admin_scan_log,code_id',
+            'code_id' => 'required|exists:admin_boss_log,code_id',
             'token' => 'required|string',
         ],
         // 'auth' => [
@@ -45,7 +45,7 @@ class BossScanController extends Content
         //     'is_login' => 'required',
         // ],
         'bossUser' => [
-            'code_id' => 'required|exists:admin_scan_log,code_id',
+            'code_id' => 'required|exists:admin_boss_log,code_id',
             'token' => 'required|string',
         ],
     ];
