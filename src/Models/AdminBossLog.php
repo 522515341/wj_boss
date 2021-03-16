@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Models;
+namespace Weigatherboss\BossLogin\Models;
+
 
 use Illuminate\Database\Eloquent\Model;
 

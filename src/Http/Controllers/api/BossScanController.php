@@ -2,8 +2,8 @@
 
 namespace Weigatherboss\BossLogin\Http\Controllers\Api;
 
-use App\Models\AdminBossLogin;
-use App\Models\AdminBossLog;
+use Weigatherboss\BossLogin\Models\AdminBossLogin;
+use Weigatherboss\BossLogin\Models\AdminBossLog;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Validator;
 use Weigatherboss\BossLogin\Http\Controllers\Api\BassController;

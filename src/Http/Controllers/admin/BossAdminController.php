@@ -2,7 +2,7 @@
 
 namespace Weigatherboss\BossLogin\Http\Controllers\Admin;
 
-use App\Models\AdminBossLogin;
+use Weigatherboss\BossLogin\Models\AdminBossLogin;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
