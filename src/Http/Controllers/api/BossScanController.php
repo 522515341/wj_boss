@@ -36,7 +36,8 @@ class BossScanController extends Content
         // ],
         'login' => [
             'code_id' => 'required|exists:admin_boss_log,code_id',
-            'user_token' => 'required|string',
+            'token' => 'required|string',
+            // 'user_token' => 'required|string',
         ],
         // 'auth' => [
         //     'code_id' => 'required|exists:admin_scan_log,code_id',
@@ -96,7 +97,11 @@ class BossScanController extends Content
             ];
         });
         $admin = $admin->toArray();
-        return wj_boss_login_service_api('200',$admin);
+        if(empty($admin)){
+            return wj_boss_login_service_api('500',[],'当前项目无可登陆账号');
+        }else{
+            return wj_boss_login_service_api('200',$admin);
+        }
     }
 
     /**
